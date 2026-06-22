@@ -10,7 +10,7 @@
   // ============================================
   // 1. CONFIGURATION (Modify these values to update shop variables)
   // ============================================
-  var PHONE_NUMBER = '919286175004'; // Shop WhatsApp number (with country code)
+  var PHONE_NUMBER = '918787502765'; // Shop WhatsApp number (with country code)
   var SHOP_LOCATION = { lat: 27.083964, lng: 93.603163 }; // More Mo's, H Sector, Itanagar
   var RATE_PER_METER = 0.014; // Delivery charge per meter (₹14 per km)
   var MAX_DELIVERY_DISTANCE = 20000; // Updated to 15km delivery radius // Maximum delivery distance (in meters)
