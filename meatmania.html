@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Meat Mania - MORE MO'S</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts & Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "tertiary": "#5a5a5a",
+            "primary-fixed-dim": "#ffb3b1",
+            "on-background": "#1c1b1b",
+            "primary": "#b90027",
+            "tertiary-fixed": "#e2e2e2",
+            "on-primary-fixed": "#410007",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#e9e2d3",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#4b463c",
+            "outline": "#916e6d",
+            "on-primary-container": "#fffaf9",
+            "tertiary-fixed-dim": "#c6c6c6",
+            "on-tertiary-fixed-variant": "#474747",
+            "inverse-on-surface": "#f3f0ef",
+            "inverse-surface": "#313030",
+            "secondary-fixed-dim": "#cdc6b8",
+            "primary-container": "#e31837",
+            "surface-bright": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "on-error": "#ffffff",
+            "surface-container": "#f0eded",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#e6bdbb",
+            "on-surface-variant": "#5d3f3e",
+            "on-secondary-fixed": "#1e1b13",
+            "secondary": "#635e53",
+            "surface-tint": "#bf0029",
+            "background": "#fcf9f8",
+            "primary-fixed": "#ffdad8",
+            "surface-container-high": "#eae7e7",
+            "on-secondary-container": "#696458",
+            "surface": "#fcf9f8",
+            "secondary-container": "#e9e2d3",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#ffb3b1",
+            "on-primary-fixed-variant": "#92001d",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-container": "#737373",
+            "surface-container-low": "#f6f3f2",
+            "on-tertiary-fixed": "#1b1b1b",
+            "on-surface": "#1c1b1b",
+            "surface-variant": "#e5e2e1",
+            "on-tertiary-container": "#fafafa"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "64px",
+            "margin-mobile": "16px",
+            "unit": "8px",
+            "container-max": "1280px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "label-bold": ["Space Grotesk"],
+            "body-md": ["Work Sans"],
+            "label-sm": ["Space Grotesk"],
+            "display-lg": ["Anton"],
+            "headline-lg-mobile": ["Anton"],
+            "body-lg": ["Work Sans"],
+            "headline-lg": ["Anton"],
+            "headline-md": ["Anton"]
+          },
+          "fontSize": {
+            "label-bold": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+            "display-lg": ["84px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+            "headline-lg-mobile": ["36px", {"lineHeight": "40px", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "headline-lg": ["48px", {"lineHeight": "52px", "fontWeight": "400"}],
+            "headline-md": ["32px", {"lineHeight": "36px", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+
+    /* Brutalist Comics Style Shadow */
+    .hard-shadow {
+      box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .hard-shadow:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+    }
+
+    .hard-shadow-active:active {
+      box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+      transform: translate(6px, 6px) !important;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  
+    /* COMIC ENHANCEMENTS */
+    body {
+      background-image: radial-gradient(rgba(0,0,0,0.06) 2px, transparent 2px);
+      background-size: 16px 16px;
+      cursor: crosshair !important;
+    }
+    a, button, .catalog-card {
+      cursor: pointer !important;
+    }
+    @keyframes jitter {
+      0% { transform: rotate(0deg) translate(0px, 0px); }
+      25% { transform: rotate(1deg) translate(1px, -1px); }
+      50% { transform: rotate(0deg) translate(-1px, 1px); }
+      75% { transform: rotate(-1deg) translate(-1px, -1px); }
+      100% { transform: rotate(0deg) translate(1px, 1px); }
+    }
+    .add-to-cart-btn:hover, #btn-whatsapp-order:hover, #menu-trigger:hover, .cart-trigger:hover {
+      animation: jitter 0.2s infinite;
+    }
+    .catalog-card {
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+    }
+    .catalog-card:hover {
+      transform: scale(1.03) translateY(-5px);
+      box-shadow: 12px 12px 0px 0px rgba(0,0,0,1);
+      z-index: 10;
+    }
+    @keyframes pageEntrance {
+      0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    main {
+      animation: pageEntrance 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+    .comic-wipe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--primary);
+      z-index: 99999;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .comic-wipe.active {
+      transform: scaleY(1);
+      pointer-events: all;
+    }
+    .comic-wipe-text {
+      font-family: 'Anton', sans-serif;
+      color: white;
+      font-size: 8rem;
+      text-transform: uppercase;
+      text-shadow: 8px 8px 0 #000;
+      opacity: 0;
+      transform: scale(0.5) rotate(-10deg);
+      transition: all 0.3s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .comic-wipe.active .comic-wipe-text {
+      opacity: 1;
+      transform: scale(1) rotate(-5deg);
+    }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
+
+  <!-- ============================================
+       TOP APP BAR / HEADER
+       ============================================ -->
+  <header class="fixed top-0 w-full z-50 bg-background flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop border-b-4 border-on-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300" id="top-app-bar">
+    <button class="flex items-center justify-center w-12 h-12 text-primary hover:bg-primary hover:text-on-primary transition-all duration-200 active:translate-y-0.5 border-2 border-on-background hard-shadow" id="menu-trigger">
+      <span class="material-symbols-outlined text-[28px]" data-icon="menu">menu</span>
+    </button>
+    <a href="code.html" class="font-display-lg text-headline-md text-primary tracking-tighter text-center leading-tight hover:scale-105 transition-transform uppercase">MORE MO'S</a>
+    <button class="flex items-center justify-center w-12 h-12 text-primary hover:bg-primary hover:text-on-primary transition-all duration-200 active:translate-y-0.5 border-2 border-on-background hard-shadow cart-trigger">
+      <span class="material-symbols-outlined text-[28px]" data-icon="shopping_cart">shopping_cart</span>
+      <span class="absolute -top-1 -right-1 w-5 h-5 bg-primary text-on-primary font-label-bold text-[10px] rounded-full flex items-center justify-center border border-on-background cart-badge hidden">0</span>
+    </button>
+    <button class="flex items-center justify-center w-12 h-12 text-primary hover:bg-primary hover:text-on-primary transition-all duration-200 active:translate-y-0.5 border-2 border-on-background hard-shadow" onclick="location.href='index.html'">
+      <span class="material-symbols-outlined text-[28px]" data-icon="home">home</span>
+    </button>
+  </header>
+
+  <!-- ============================================
+       LEFT NAVIGATION DRAWER
+       ============================================ -->
+  <div class="fixed inset-0 bg-on-background/60 z-[55] transition-opacity duration-300 opacity-0 pointer-events-none" id="drawer-overlay"></div>
+  <aside class="fixed inset-y-0 left-0 z-[60] p-6 bg-secondary-container h-full w-[300px] border-r-4 border-on-background shadow-[8px_0px_0px_0px_rgba(0,0,0,1)] transition-transform duration-300 ease-in-out -translate-x-full" id="nav-drawer">
+    <div class="flex justify-between items-center mb-12">
+      <h2 class="font-display-lg text-headline-md text-primary leading-tight uppercase">MORE MO'S MENU</h2>
+      <button class="text-on-background p-1 border-2 border-on-background rounded-md bg-background" id="drawer-close">
+        <span class="material-symbols-outlined" data-icon="close">close</span>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4">
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary" href="momo.html">
+        <span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+        <span>Momo Parlour</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary" href="ramen-thukpa.html">
+        <span class="material-symbols-outlined" data-icon="soup_kitchen">soup_kitchen</span>
+        <span>Ramen & Thukpa</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary" href="noodles-rice.html">
+        <span class="material-symbols-outlined" data-icon="dinner_dining">dinner_dining</span>
+        <span>Chowmein & Rice</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary" href="sides.html">
+        <span class="material-symbols-outlined" data-icon="fastfood">fastfood</span>
+        <span>Sides & Wraps</span>
+      </a>
+      <a class="p-4 bg-primary text-on-primary border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all" href="meatmania.html">
+        <span class="material-symbols-outlined" data-icon="set_meal">set_meal</span>
+        <span>Meat Mania</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary" href="drinks.html">
+        <span class="material-symbols-outlined" data-icon="local_bar">local_bar</span>
+        <span>Refreshing Drinks</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary" href="shakes.html">
+        <span class="material-symbols-outlined" data-icon="coffee_maker">coffee_maker</span>
+        <span>Milkshakes</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ============================================
+       RIGHT SHOPPING CART DRAWER
+       ============================================ -->
+  <div class="fixed inset-0 bg-on-background/60 z-[65] transition-opacity duration-300 opacity-0 pointer-events-none" id="cart-overlay"></div>
+  <aside class="fixed inset-y-0 right-0 z-[70] flex flex-col bg-surface-container h-full w-full sm:w-[400px] border-l-4 border-on-background shadow-[-8px_0px_0px_0px_rgba(185,0,39,1)] transition-transform duration-300 ease-in-out translate-x-full" id="cart-drawer">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b-4 border-on-background bg-primary text-on-primary flex justify-between items-center flex-shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-3xl" data-icon="shopping_basket">shopping_basket</span>
+        <h2 class="font-display-lg text-headline-md leading-none uppercase">YOUR HAUL</h2>
+      </div>
+      <button class="flex items-center justify-center w-10 h-10 border-2 border-on-primary bg-on-background text-on-primary hard-shadow-active" id="cart-close">
+        <span class="material-symbols-outlined" data-icon="close">close</span>
+      </button>
+    </div>
+
+    <!-- Scrollable Items Area -->
+    <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6 no-scrollbar" id="cart-items-container">
+      <p class="text-center font-body-md py-12 text-on-surface-variant">Your cart is feeling empty. Feed the beast!</p>
+    </div>
+
+    <!-- Dynamic Checkout Totals Area -->
+    <div class="p-6 border-t-4 border-on-background bg-secondary-container space-y-4 flex-shrink-0" id="cart-checkout-area" style="display: none;">
+      
+      <!-- Geolocation Box -->
+      <div class="p-4 bg-surface-container border-2 border-on-background rounded-lg" id="cart-location-box"></div>
+      
+      <!-- Coupon Section -->
+      <div class="flex gap-2">
+        <input type="text" id="coupon-input" placeholder="PROMO CODE" class="flex-1 px-4 py-2 border-2 border-on-background bg-background font-label-bold placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-primary rounded-md uppercase" />
+        <button id="btn-apply-coupon" class="px-4 bg-primary text-on-primary font-label-bold uppercase border-2 border-on-background hard-shadow hard-shadow-active py-2 rounded-md">Apply</button>
+      </div>
+      <div id="coupon-message" class="text-xs font-label-bold"></div>
+
+      <!-- Costs Breakdown -->
+      <div class="border-t-2 border-dashed border-on-background pt-3 space-y-1.5">
+        <div class="flex justify-between text-xs font-label-bold uppercase text-on-surface-variant">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">&#8377;0.00</span>
+        </div>
+        <div class="flex justify-between text-xs font-label-bold uppercase text-green-500 hidden" id="cart-discount-row">
+          <span>Discount Code</span>
+          <span id="cart-discount-value">-&#8377;0.00</span>
+        </div>
+        <div class="flex justify-between text-xs font-label-bold uppercase text-on-surface-variant">
+          <span>Handling Fee</span>
+          <span id="cart-handling-value">&#8377;9.00</span>
+        </div>
+        <div class="flex justify-between text-xs font-label-bold uppercase text-on-surface-variant">
+          <span>Shipping Fee</span>
+          <span id="cart-delivery-value">Verify location above</span>
+        </div>
+        <div class="flex justify-between items-end border-t-2 border-on-background pt-2 mt-1">
+          <span class="font-label-bold uppercase text-lg text-on-surface">Total</span>
+          <span class="font-display-lg text-headline-md text-primary" id="cart-total-value">&#8377;9.00</span>
+        </div>
+      </div>
+
+      <!-- Checkout Button -->
+      <a href="#" id="btn-whatsapp-order" target="_blank" class="w-full py-4 bg-green-500 hover:bg-green-600 text-white font-display-lg text-headline-md uppercase hard-shadow hard-shadow-active flex items-center justify-center gap-3">
+        ORDER VIA WHATSAPP <span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================================
+       CATALOG PAGE WRAPPER
+       ============================================ -->
+  <main class="mt-20">
+    <!-- Hero Slider / Top Category Navigation -->
+    <section class="sticky top-20 z-40 overflow-hidden border-b-4 border-on-background py-4 bg-primary-container">
+      <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+        <h3 class="font-display-lg text-headline-md text-on-primary uppercase mb-6 text-center md:text-left">CHOOSE YOUR FLAVOR FIGHTER</h3>
+        <div class="flex overflow-x-auto gap-8 pb-4 no-scrollbar snap-x">
+          
+          <a href="momo.html" class="flex-none w-32 flex flex-col items-center gap-2 snap-center group">
+            <div class="rounded-full bg-secondary-container border-4 border-on-background p-2 hard-shadow group-hover:scale-105 w-20 h-20 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[42px]">rice_bowl</span>
+            </div>
+            <span class="font-display-lg text-xs uppercase text-on-primary group-hover:text-secondary-fixed transition-colors">Momo Parlour</span>
+          </a>
+          
+          <a href="ramen-thukpa.html" class="flex-none w-32 flex flex-col items-center gap-2 snap-center group">
+            <div class="rounded-full bg-secondary-container border-4 border-on-background p-2 hard-shadow group-hover:scale-105 w-20 h-20 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[42px]">soup_kitchen</span>
+            </div>
+            <span class="font-display-lg text-xs uppercase text-on-primary group-hover:text-secondary-fixed transition-colors">Ramen & Thukpa</span>
+          </a>
+          
+          <a href="noodles-rice.html" class="flex-none w-32 flex flex-col items-center gap-2 snap-center group">
+            <div class="rounded-full bg-secondary-container border-4 border-on-background p-2 hard-shadow group-hover:scale-105 w-20 h-20 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[42px]">dinner_dining</span>
+            </div>
+            <span class="font-display-lg text-xs uppercase text-on-primary group-hover:text-secondary-fixed transition-colors">Chowmein & Rice</span>
+          </a>
+          
+          <a href="sides.html" class="flex-none w-32 flex flex-col items-center gap-2 snap-center group">
+            <div class="rounded-full bg-secondary-container border-4 border-on-background p-2 hard-shadow group-hover:scale-105 w-20 h-20 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[42px]">fastfood</span>
+            </div>
+            <span class="font-display-lg text-xs uppercase text-on-primary group-hover:text-secondary-fixed transition-colors">Sides & Wraps</span>
+          </a>
+          
+          <a href="drinks.html" class="flex-none w-32 flex flex-col items-center gap-2 snap-center group">
+            <div class="rounded-full bg-secondary-container border-4 border-on-background p-2 hard-shadow group-hover:scale-105 w-20 h-20 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[42px]">local_bar</span>
+            </div>
+            <span class="font-display-lg text-xs uppercase text-on-primary group-hover:text-secondary-fixed transition-colors">Refreshing Drinks</span>
+          </a>
+
+          <a href="shakes.html" class="flex-none w-32 flex flex-col items-center gap-2 snap-center group">
+            <div class="rounded-full bg-secondary-container border-4 border-on-background p-2 hard-shadow group-hover:scale-105 w-20 h-20 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[42px]">coffee_maker</span>
+            </div>
+            <span class="font-display-lg text-xs uppercase text-on-primary group-hover:text-secondary-fixed transition-colors">Milkshakes</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+    <div class="py-8 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto space-y-8">
+    
+    <!-- Title Page Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b-4 border-on-background pb-6 gap-4">
+      <div>
+        <h1 class="font-display-lg text-[48px] md:text-[64px] text-primary uppercase leading-none">Meat Mania</h1>
+        <p class="font-label-bold text-xs uppercase tracking-widest text-on-surface-variant mt-2">The Ultimate Feast For Meat Lovers</p>
+      </div>
+      
+      <!-- Live Search Box -->
+      <div class="relative w-full md:w-80">
+        <span class="material-symbols-outlined absolute left-4 top-3.5 text-gray-400">search</span>
+        <input type="text" id="catalog-search-input" placeholder="SEARCH MEAT..." class="w-full pl-12 pr-4 py-3 border-2 border-on-background bg-secondary-container font-label-bold placeholder-gray-400 focus:outline-none focus:border-primary rounded-md uppercase" />
+      </div>
+    </div>
+
+    <!-- Category Scrollable Chips -->
+    <div class="flex overflow-x-auto gap-3 pb-2 no-scrollbar">
+      <button class="catalog-chip active px-6 py-2.5 bg-primary text-on-primary font-label-bold uppercase border-2 border-on-background hard-shadow hard-shadow-active rounded-full text-xs" data-filter="all">All</button>
+      <button class="catalog-chip px-6 py-2.5 bg-secondary-container text-on-secondary-container font-label-bold uppercase border-2 border-on-background hard-shadow hard-shadow-active rounded-full text-xs" data-filter="chicken">Chicken</button>
+      <button class="catalog-chip px-6 py-2.5 bg-secondary-container text-on-secondary-container font-label-bold uppercase border-2 border-on-background hard-shadow hard-shadow-active rounded-full text-xs" data-filter="pork">Pork</button>
+      <button class="catalog-chip px-6 py-2.5 bg-secondary-container text-on-secondary-container font-label-bold uppercase border-2 border-on-background hard-shadow hard-shadow-active rounded-full text-xs" data-filter="seafood">Seafood</button>
+    </div>
+
+    <!-- Catalog Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="catalog-products-grid">
+      
+      <!-- Item 1: Crispy Fried Chicken -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="chicken fried crispy">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Crispy Fried Chicken" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="crispyfriedchicken.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">CRISPY FRIED CHICKEN</h3>
+          <span class="font-label-bold text-primary">&#8377;200.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Chicken</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Golden crispy fried chicken pieces with a crunchy coating.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="meat_crispy_fried_chicken" data-name="Crispy Fried Chicken" data-price="200.00" data-image="crispyfriedchicken.png" data-tags="chicken fried" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+      <!-- Item 2: Chicken Chilly -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="chicken chilly spicy">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Chicken Chilly" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="chickenchilly.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">CHICKEN CHILLY</h3>
+          <span class="font-label-bold text-primary">&#8377;250.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Chicken</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Spicy chicken chunks tossed with bell peppers and green chillies.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="meat_chicken_chilly" data-name="Chicken Chilly" data-price="250.00" data-image="chickenchilly.png" data-tags="chicken chilly spicy" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+      <!-- Item 3: Honey Garlic Chicken -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="chicken honey garlic">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Honey Garlic Chicken" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="honeygarlicchicken.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">HONEY GARLIC CHICKEN</h3>
+          <span class="font-label-bold text-primary">&#8377;250.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Chicken</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Crispy battered chicken chunks tossed in a sweet, sticky honey-garlic glaze.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="rice_honey_garlic_chicken" data-name="Honey Garlic Chicken" data-price="250.00" data-image="honeygarlicchicken.png" data-tags="chicken honey garlic" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+      <!-- Item 4: Fish Finger -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="fish seafood finger">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Fish Finger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="fishfinger.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">FISH FINGER</h3>
+          <span class="font-label-bold text-primary">&#8377;250.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Seafood</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Crispy golden fish fingers with tartar sauce.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="meat_fish_finger" data-name="Fish Finger" data-price="250.00" data-image="fishfinger.png" data-tags="fish finger seafood" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+      <!-- Item 5: Honey Garlic Pork -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="pork honey garlic">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Honey Garlic Pork" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="honeygarlicpork.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">HONEY GARLIC PORK</h3>
+          <span class="font-label-bold text-primary">&#8377;270.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Pork</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Crispy pork pieces in a sticky sweet honey-garlic glaze.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="meat_honey_garlic_pork" data-name="Honey Garlic Pork" data-price="270.00" data-image="honeygarlicpork.png" data-tags="pork honey garlic" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+      <!-- Item 6: Pork Chilly -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="pork chilly spicy">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Pork Chilly" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="porkchilly.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">PORK CHILLY</h3>
+          <span class="font-label-bold text-primary">&#8377;300.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Pork</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Spicy pork chunks wok-tossed with chillies and veggies.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="meat_pork_chilly" data-name="Pork Chilly" data-price="300.00" data-image="porkchilly.png" data-tags="pork chilly spicy" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+      <!-- Item 7: Korean Fried Chicken -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="chicken korean fried">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Korean Fried Chicken" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="koreanfriedchicken.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">KOREAN FRIED CHICKEN</h3>
+          <span class="font-label-bold text-primary">&#8377;300.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Chicken</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Extra crispy chicken coated in sweet and spicy gochujang glaze.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="meat_korean_fried_chicken" data-name="Korean Fried Chicken" data-price="300.00" data-image="koreanfriedchicken.png" data-tags="chicken korean fried" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+      <!-- Item 8: Fish & Chips -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="fish chips seafood">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Fish & Chips" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="fishandchips.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">FISH & CHIPS</h3>
+          <span class="font-label-bold text-primary">&#8377;300.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Seafood</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Classic battered fish fillets served with crispy potato chips.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="meat_fish_chips" data-name="Fish & Chips" data-price="300.00" data-image="fishandchips.png" data-tags="fish chips seafood" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+      <!-- Item 9: Shrimp Tempura -->
+      <div class="catalog-card flex flex-col bg-surface border-4 border-on-background p-5 hard-shadow rounded-lg group" data-tags="shrimp tempura seafood">
+        <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container relative">
+          <img alt="Shrimp Tempura" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="shrimptempura.png"/>
+        </div>
+        <div class="flex justify-between items-start mt-3">
+          <h3 class="font-display-lg text-headline-sm text-primary leading-none catalog-card-title">SHRIMP TEMPURA</h3>
+          <span class="font-label-bold text-primary">&#8377;350.00</span>
+        </div>
+        <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[9px] mt-1">Seafood</p>
+        <p class="font-body-md text-on-surface text-xs mt-2 line-clamp-3">Crispy light battered shrimp served with dipping sauce.</p>
+        <button class="mt-4 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+                data-id="meat_shrimp_tempura" data-name="Shrimp Tempura" data-price="350.00" data-image="shrimptempura.png" data-tags="shrimp tempura seafood" data-category="Meat Mania">ADD TO CART</button>
+      </div>
+
+    </div>
+      </div>
+  </main>
+
+  <!-- ============================================
+       GLOBAL BRAND FOOTER
+       ============================================ -->
+  <footer class="w-full py-12 bg-on-background border-t-4 border-primary px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8 text-on-primary mt-12">
+    <div class="font-display-lg text-headline-lg text-primary-fixed uppercase tracking-tighter transition-all duration-300 hover:tracking-widest">
+      Ã‚Â© 2026 MORE MO'S. EAT LOUD.
+    </div>
+    <div class="flex gap-6 font-label-bold text-label-bold text-surface-variant">
+      <a class="hover:text-primary transition-colors" href="code.html">Back to Home</a>
+      <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+      <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

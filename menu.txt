@@ -1,0 +1,34 @@
+Menu Image Update Report
+========================
+
+Soda -> soda.png
+Tea Coffee -> teacoffee.png
+Virgin Mojito -> virginmojito.png
+Strawberry Mojito -> strawberrymojito.png
+Mango Mojito -> mangomojito.png
+Blueberry Mojito -> blueberrymojito.png
+Chicken Steamed Momo -> chickensteamedmomo.png
+Shin Ramen Soupy -> shinramensoupy.png
+Honey Garlic Chicken -> honeygarlicchicken.png
+Blueberry Milkshake -> blueberrymilkshake.png
+Chicken Fried Momo -> chickenfriedmomo.png
+Pork Steamed Momo -> porksteamedmomo.png
+Pork Fried Momo -> porkfriedmomo.png
+Beef Steamed Momo -> beefsteamedmomo.png
+Beef Fried Momo -> beeffriedmomo.png
+Chicken Fried Rice -> chickenfriedrice.png
+Pork Fried Rice -> porkfriedrice.png
+Chicken Chowmein -> chickenchowmein.png
+Beef Chowmein -> beefchowmein.png
+Pork Chowmein -> porkchowmein.png
+Ramen Dry -> ramendry.png
+Chicken Thukpa -> chickenthukpa.png
+Pork Thukpa -> porkthukpa.png
+Beef Thukpa -> beefthukpa.png
+Strawberry Shake -> strawberryshake.png
+Mango Shake -> mangoshake.png
+Blueberry Shake -> blueberryshake.png
+French Fries -> frenchfries.png
+Peri Peri Fries -> periperifries.png
+Chicken Wrap -> chickenwrap.png
+Beef Wrap -> beefwrap.png

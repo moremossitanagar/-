@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>MORE MO'S | Flavor Revolution</title>
+  <meta content="Join the MORE MO'S revolution. The loudest, boldest, and most amazing food you've ever tasted."
+    name="description" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts & Material Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&family=Work+Sans:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "tertiary": "#5a5a5a",
+            "primary-fixed-dim": "#ffb3b1",
+            "on-background": "#1c1b1b",
+            "primary": "#b90027",
+            "tertiary-fixed": "#e2e2e2",
+            "on-primary-fixed": "#410007",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#e9e2d3",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#4b463c",
+            "outline": "#916e6d",
+            "on-primary-container": "#fffaf9",
+            "tertiary-fixed-dim": "#c6c6c6",
+            "on-tertiary-fixed-variant": "#474747",
+            "inverse-on-surface": "#f3f0ef",
+            "inverse-surface": "#313030",
+            "secondary-fixed-dim": "#cdc6b8",
+            "primary-container": "#e31837",
+            "surface-bright": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "on-error": "#ffffff",
+            "surface-container": "#f0eded",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#e6bdbb",
+            "on-surface-variant": "#5d3f3e",
+            "on-secondary-fixed": "#1e1b13",
+            "secondary": "#635e53",
+            "surface-tint": "#bf0029",
+            "background": "#fcf9f8",
+            "primary-fixed": "#ffdad8",
+            "surface-container-high": "#eae7e7",
+            "on-secondary-container": "#696458",
+            "surface": "#fcf9f8",
+            "secondary-container": "#e9e2d3",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#ffb3b1",
+            "on-primary-fixed-variant": "#92001d",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-container": "#737373",
+            "surface-container-low": "#f6f3f2",
+            "on-tertiary-fixed": "#1b1b1b",
+            "on-surface": "#1c1b1b",
+            "surface-variant": "#e5e2e1",
+            "on-tertiary-container": "#fafafa"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "64px",
+            "margin-mobile": "16px",
+            "unit": "8px",
+            "container-max": "1280px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "label-bold": ["Space Grotesk"],
+            "body-md": ["Work Sans"],
+            "label-sm": ["Space Grotesk"],
+            "display-lg": ["Anton"],
+            "headline-lg-mobile": ["Anton"],
+            "body-lg": ["Work Sans"],
+            "headline-lg": ["Anton"],
+            "headline-md": ["Anton"]
+          },
+          "fontSize": {
+            "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "display-lg": ["84px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["36px", { "lineHeight": "40px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-lg": ["48px", { "lineHeight": "52px", "fontWeight": "400" }],
+            "headline-md": ["32px", { "lineHeight": "36px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+
+    /* Brutalist Comics Style Shadow */
+    .hard-shadow {
+      box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .hard-shadow:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+    }
+
+    .hard-shadow-active:active {
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
+      transform: translate(6px, 6px) !important;
+    }
+
+    /* Infinite Marquee Animation */
+    .marquee-text {
+      animation: marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Floating Sticker Animation */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(5deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+    }
+
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Carousel Animation */
+    @keyframes scroll-carousel {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(-320px * 4 - 2rem * 4));
+      }
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 2rem;
+      animation: scroll-carousel 35s linear infinite;
+      width: max-content;
+    }
+
+    .carousel-container:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    /* COMIC ENHANCEMENTS */
+    body {
+      background-image: radial-gradient(rgba(0, 0, 0, 0.06) 2px, transparent 2px);
+      background-size: 16px 16px;
+      cursor: crosshair !important;
+    }
+
+    a,
+    button,
+    .catalog-card {
+      cursor: pointer !important;
+    }
+
+    @keyframes jitter {
+      0% {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
+
+      25% {
+        transform: rotate(1deg) translate(1px, -1px);
+      }
+
+      50% {
+        transform: rotate(0deg) translate(-1px, 1px);
+      }
+
+      75% {
+        transform: rotate(-1deg) translate(-1px, -1px);
+      }
+
+      100% {
+        transform: rotate(0deg) translate(1px, 1px);
+      }
+    }
+
+    .add-to-cart-btn:hover,
+    #btn-whatsapp-order:hover,
+    #menu-trigger:hover,
+    .cart-trigger:hover {
+      animation: jitter 0.2s infinite;
+    }
+
+    .catalog-card {
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+    }
+
+    .catalog-card:hover {
+      transform: scale(1.03) translateY(-5px);
+      box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 1);
+      z-index: 10;
+    }
+
+    @keyframes pageEntrance {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    main {
+      animation: pageEntrance 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .comic-wipe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--primary);
+      z-index: 99999;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comic-wipe.active {
+      transform: scaleY(1);
+      pointer-events: all;
+    }
+
+    .comic-wipe-text {
+      font-family: 'Anton', sans-serif;
+      color: white;
+      font-size: 8rem;
+      text-transform: uppercase;
+      text-shadow: 8px 8px 0 #000;
+      opacity: 0;
+      transform: scale(0.5) rotate(-10deg);
+      transition: all 0.3s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .comic-wipe.active .comic-wipe-text {
+      opacity: 1;
+      transform: scale(1) rotate(-5deg);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
+  <div id="intro-video-overlay" class="fixed inset-0 z-[200] flex items-center justify-center bg-black">
+    <video id="intro-video" src="Untitled video.mp4" autoplay muted playsinline class="w-full h-full object-cover"
+      preload="auto"></video>
+    <button id="skip-intro"
+      class="absolute bottom-4 right-4 bg-[#FFDE47] text-[#000000] border-3 border-[#000000] font-bold py-2 px-4 shadow-[4px_4px_0px_0px_#000000] animate-pulse hover:scale-105 transition-transform duration-200">Skip
+      Intro</button>
+  </div>
+  <!-- ============================================
+       SPLASH SCREEN
+       ============================================ -->
+  <div id="splash-screen"
+    class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-primary text-on-primary transition-opacity duration-500">
+    <div class="text-center space-y-6 max-w-md px-6">
+      <div class="inline-block p-6 bg-secondary-container border-4 border-on-background hard-shadow rotate-3">
+        <h1 class="font-display-lg text-[64px] leading-none text-primary uppercase select-none">MORE MO'S</h1>
+      </div>
+      <p class="font-label-bold text-lg uppercase tracking-widest text-secondary-container">THE FLAVOR REVOLUTION IS
+        HERE</p>
+      <div class="w-full bg-on-background h-4 border-2 border-on-background rounded-full overflow-hidden">
+        <div class="bg-secondary-container h-full w-2/3 animate-pulse"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       TOP APP BAR / HEADER
+       ============================================ -->
+  <header
+    class="fixed top-0 w-full z-50 bg-background flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop border-b-4 border-on-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300"
+    id="top-app-bar">
+    <button
+      class="flex items-center justify-center w-12 h-12 text-primary hover:bg-primary hover:text-on-primary transition-all duration-200 active:translate-y-0.5 border-2 border-on-background hard-shadow"
+      id="menu-trigger">
+      <span class="material-symbols-outlined text-[28px]" data-icon="menu">menu</span>
+    </button>
+    <a href="index.html"
+      class="font-display-lg text-headline-md text-primary tracking-tighter text-center leading-tight hover:scale-105 transition-transform uppercase">MORE
+      MO'S</a>
+    <button
+      class="flex items-center justify-center w-12 h-12 text-primary hover:bg-primary hover:text-on-primary transition-all duration-200 active:translate-y-0.5 border-2 border-on-background hard-shadow cart-trigger">
+      <span class="material-symbols-outlined text-[28px]" data-icon="shopping_cart">shopping_cart</span>
+      <span
+        class="absolute -top-1 -right-1 w-5 h-5 bg-primary text-on-primary font-label-bold text-[10px] rounded-full flex items-center justify-center border border-on-background cart-badge hidden">0</span>
+    </button>
+    <button
+      class="flex items-center justify-center w-12 h-12 text-primary hover:bg-primary hover:text-on-primary transition-all duration-200 active:translate-y-0.5 border-2 border-on-background hard-shadow"
+      onclick="location.href='index.html'"><span class="material-symbols-outlined text-[28px]"
+        data-icon="home">home</span></button>
+  </header>
+
+  <!-- ============================================
+       LEFT NAVIGATION DRAWER
+       ============================================ -->
+  <div class="fixed inset-0 bg-on-background/60 z-[55] transition-opacity duration-300 opacity-0 pointer-events-none"
+    id="drawer-overlay"></div>
+  <aside
+    class="fixed inset-y-0 left-0 z-[60] p-6 bg-secondary-container h-full w-[300px] border-r-4 border-on-background shadow-[8px_0px_0px_0px_rgba(0,0,0,1)] transition-transform duration-300 ease-in-out -translate-x-full"
+    id="nav-drawer">
+    <div class="flex justify-between items-center mb-12">
+      <h2 class="font-display-lg text-headline-md text-primary leading-tight uppercase">MORE MO'S MENU</h2>
+      <button class="text-on-background p-1 border-2 border-on-background rounded-md bg-background" id="drawer-close">
+        <span class="material-symbols-outlined" data-icon="close">close</span>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4">
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary"
+        href="momo.html">
+        <span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+        <span>Momo Parlour</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary"
+        href="ramen-thukpa.html">
+        <span class="material-symbols-outlined" data-icon="soup_kitchen">soup_kitchen</span>
+        <span>Ramen & Thukpa</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary"
+        href="noodles-rice.html">
+        <span class="material-symbols-outlined" data-icon="dinner_dining">dinner_dining</span>
+        <span>Chowmein & Rice</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary"
+        href="sides.html">
+        <span class="material-symbols-outlined" data-icon="fastfood">fastfood</span>
+        <span>Sides & Wraps</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary" href="meatmania.html">
+        <span class="material-symbols-outlined" data-icon="set_meal">set_meal</span>
+        <span>Meat Mania</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary"
+        href="drinks.html">
+        <span class="material-symbols-outlined" data-icon="local_bar">local_bar</span>
+        <span>Refreshing Drinks</span>
+      </a>
+      <a class="p-4 bg-background text-on-background border-2 border-on-background hard-shadow font-label-bold flex items-center gap-4 transition-all hover:bg-primary hover:text-on-primary"
+        href="shakes.html">
+        <span class="material-symbols-outlined" data-icon="coffee_maker">coffee_maker</span>
+        <span>Milkshakes</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ============================================
+       RIGHT SHOPPING CART DRAWER
+       ============================================ -->
+  <div class="fixed inset-0 bg-on-background/60 z-[65] transition-opacity duration-300 opacity-0 pointer-events-none"
+    id="cart-overlay"></div>
+  <aside
+    class="fixed inset-y-0 right-0 z-[70] flex flex-col bg-surface-container h-full w-full sm:w-[400px] border-l-4 border-on-background shadow-[-8px_0px_0px_0px_rgba(185,0,39,1)] transition-transform duration-300 ease-in-out translate-x-full"
+    id="cart-drawer">
+
+    <!-- Drawer Header -->
+    <div
+      class="p-6 border-b-4 border-on-background bg-primary text-on-primary flex justify-between items-center flex-shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-3xl" data-icon="shopping_basket">shopping_basket</span>
+        <h2 class="font-display-lg text-headline-md leading-none uppercase">YOUR HAUL</h2>
+      </div>
+      <button
+        class="flex items-center justify-center w-10 h-10 border-2 border-on-primary bg-on-background text-on-primary hard-shadow-active"
+        id="cart-close">
+        <span class="material-symbols-outlined" data-icon="close">close</span>
+      </button>
+    </div>
+
+    <!-- Scrollable Items Area -->
+    <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6 no-scrollbar" id="cart-items-container">
+      <p class="text-center font-body-md py-12 text-on-surface-variant">Your cart is feeling empty. Feed the beast!</p>
+    </div>
+
+    <!-- Dynamic Checkout Totals Area -->
+    <div class="p-6 border-t-4 border-on-background bg-secondary-container space-y-4 flex-shrink-0"
+      id="cart-checkout-area" style="display: none;">
+
+      <!-- Geolocation Box -->
+      <div class="p-4 bg-surface-container border-2 border-on-background rounded-lg" id="cart-location-box"></div>
+
+      <!-- Coupon Section -->
+      <div class="flex gap-2">
+        <input type="text" id="coupon-input" placeholder="PROMO CODE"
+          class="flex-1 px-4 py-2 border-2 border-on-background bg-background font-label-bold placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-primary rounded-md uppercase" />
+        <button id="btn-apply-coupon"
+          class="px-4 bg-primary text-on-primary font-label-bold uppercase border-2 border-on-background hard-shadow hard-shadow-active py-2 rounded-md">Apply</button>
+      </div>
+      <div id="coupon-message" class="text-xs font-label-bold"></div>
+
+      <!-- Costs Breakdown -->
+      <div class="border-t-2 border-dashed border-on-background pt-3 space-y-1.5">
+        <div class="flex justify-between text-xs font-label-bold uppercase text-on-surface-variant">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">&#8377;0.00</span>
+        </div>
+        <div class="flex justify-between text-xs font-label-bold uppercase text-green-500 hidden"
+          id="cart-discount-row">
+          <span>Discount Code</span>
+          <span id="cart-discount-value">-&#8377;0.00</span>
+        </div>
+        <div class="flex justify-between text-xs font-label-bold uppercase text-on-surface-variant">
+          <span>Handling Fee</span>
+          <span id="cart-handling-value">&#8377;12.00</span>
+        </div>
+        <div class="flex justify-between text-xs font-label-bold uppercase text-on-surface-variant">
+          <span>Shipping Fee</span>
+          <span id="cart-delivery-value">Verify location above</span>
+        </div>
+        <div class="flex justify-between items-end border-t-2 border-on-background pt-2 mt-1">
+          <span class="font-label-bold uppercase text-lg text-on-surface">Total</span>
+          <span class="font-display-lg text-headline-md text-primary" id="cart-total-value">&#8377;12.00</span>
+        </div>
+      </div>
+
+      <!-- Checkout Button -->
+      <a href="#" id="btn-whatsapp-order" target="_blank"
+        class="w-full py-4 bg-green-500 hover:bg-green-600 text-white font-display-lg text-headline-md uppercase hard-shadow hard-shadow-active flex items-center justify-center gap-3">
+        ORDER VIA WHATSAPP <span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main class="mt-20">
+
+    <!-- Hero Slider / Top Category Navigation -->
+    <section class="sticky top-20 z-40 overflow-hidden border-b-4 border-on-background py-3 bg-primary-container">
+      <div class="container mx-auto px-4">
+        <h3 class="font-display-lg text-[20px] text-on-primary uppercase mb-4 text-center">CHOOSE YOUR FLAVOR</h3>
+        <div class="flex overflow-x-auto gap-4 pb-3 no-scrollbar snap-x">
+
+          <a href="momo.html" class="flex-none w-24 flex flex-col items-center gap-1.5 snap-center group">
+            <div
+              class="rounded-full bg-secondary-container border-3 border-on-background p-1.5 hard-shadow group-hover:scale-105 w-14 h-14 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[28px]">rice_bowl</span>
+            </div>
+            <span
+              class="font-display-lg text-[10px] uppercase text-on-primary group-hover:text-secondary-fixed transition-colors leading-tight text-center">Momo
+              Parlour</span>
+          </a>
+
+          <a href="ramen-thukpa.html" class="flex-none w-24 flex flex-col items-center gap-1.5 snap-center group">
+            <div
+              class="rounded-full bg-secondary-container border-3 border-on-background p-1.5 hard-shadow group-hover:scale-105 w-14 h-14 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[28px]">soup_kitchen</span>
+            </div>
+            <span
+              class="font-display-lg text-[10px] uppercase text-on-primary group-hover:text-secondary-fixed transition-colors leading-tight text-center">Ramen
+              & Thukpa</span>
+          </a>
+
+          <a href="noodles-rice.html" class="flex-none w-24 flex flex-col items-center gap-1.5 snap-center group">
+            <div
+              class="rounded-full bg-secondary-container border-3 border-on-background p-1.5 hard-shadow group-hover:scale-105 w-14 h-14 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[28px]">dinner_dining</span>
+            </div>
+            <span
+              class="font-display-lg text-[10px] uppercase text-on-primary group-hover:text-secondary-fixed transition-colors leading-tight text-center">Chowmein
+              & Rice</span>
+          </a>
+
+          <a href="sides.html" class="flex-none w-24 flex flex-col items-center gap-1.5 snap-center group">
+            <div
+              class="rounded-full bg-secondary-container border-3 border-on-background p-1.5 hard-shadow group-hover:scale-105 w-14 h-14 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[28px]">fastfood</span>
+            </div>
+            <span
+              class="font-display-lg text-[10px] uppercase text-on-primary group-hover:text-secondary-fixed transition-colors leading-tight text-center">Sides
+              & Wraps</span>
+          </a>
+          <a href="meatmania.html" class="flex-none w-24 flex flex-col items-center gap-1.5 snap-center group">
+            <div class="rounded-full bg-secondary-container border-3 border-on-background p-1.5 hard-shadow group-hover:scale-105 w-14 h-14 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[28px]">set_meal</span>
+            </div>
+            <span class="font-display-lg text-[10px] uppercase text-on-primary group-hover:text-secondary-fixed transition-colors leading-tight text-center">Meat Mania</span>
+          </a>
+
+          <a href="drinks.html" class="flex-none w-24 flex flex-col items-center gap-1.5 snap-center group">
+            <div
+              class="rounded-full bg-secondary-container border-3 border-on-background p-1.5 hard-shadow group-hover:scale-105 w-14 h-14 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[28px]">local_bar</span>
+            </div>
+            <span
+              class="font-display-lg text-[10px] uppercase text-on-primary group-hover:text-secondary-fixed transition-colors leading-tight text-center">Refreshing
+              Drinks</span>
+          </a>
+
+          <a href="shakes.html" class="flex-none w-24 flex flex-col items-center gap-1.5 snap-center group">
+            <div
+              class="rounded-full bg-secondary-container border-3 border-on-background p-1.5 hard-shadow group-hover:scale-105 w-14 h-14 transition-all duration-300 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-[28px]">coffee_maker</span>
+            </div>
+            <span
+              class="font-display-lg text-[10px] uppercase text-on-primary group-hover:text-secondary-fixed transition-colors leading-tight text-center">Milkshakes</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Comic Showcase / Brand Intro Hero -->
+    <section
+      class="relative bg-primary min-h-[85vh] flex flex-col items-end justify-end overflow-hidden border-b-4 border-on-background"
+      style="background-image: url('MORE1.PNG'); background-size: cover; background-position: center bottom; background-repeat: no-repeat;">
+
+      <!-- Offset Comic Floating Banner -->
+      <div
+        class="absolute top-4 left-4 w-24 h-24 bg-secondary-container text-on-secondary-container rounded-full flex flex-col items-center justify-center rotate-[-12deg] z-20 border-3 border-on-background shadow-lg animate-float p-2 text-center">
+        <span class="font-display-lg text-[14px] uppercase leading-none text-primary">MORE MO'S</span>
+        <span class="font-label-bold text-[8px] uppercase text-on-background">momo & dumpling parlour</span>
+      </div>
+
+      <div class="w-full px-4 pb-6 relative z-10">
+        <a href="momo.html"
+          class="block w-full text-center bg-[#FFDE47] text-[#000000] font-headline-md text-[24px] px-6 py-4 border-4 border-on-background hard-shadow hard-shadow-active uppercase select-none hover:scale-105 transition-transform duration-300 tracking-wide">ORDER NOW</a>
+      </div>
+    </section>
+
+
+
+    <!-- Seasonal Menu Infinite Scrolling Carousel -->
+    <section class="relative py-8 bg-background overflow-hidden" id="seasonal-section">
+      <div class="container mx-auto px-4 mb-4 flex justify-between items-end">
+        <h2 class="font-display-lg text-[28px] text-on-background uppercase leading-none">BESTSELLERS</h2>
+        <a class="font-label-bold text-primary flex items-center gap-1 hover:translate-x-1 transition-transform uppercase text-xs"
+          href="momo.html">Menu <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+      </div>
+
+      <div class="carousel-container relative w-full overflow-x-auto snap-x no-scrollbar cursor-grab py-2">
+        <div class="carousel-track">
+
+          <!-- Card 1: Chicken Steamed Momo -->
+          <div
+            class="w-[260px] bg-surface-container-lowest border-3 border-on-background p-4 hard-shadow flex flex-col gap-2 group hover:scale-[1.02] transition-transform duration-300 snap-center mx-2">
+            <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container">
+              <!-- # here to chnage Chicken Steamed Momo png -->
+              <img alt="Chicken Steamed Momo"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                src="chickensteamedmomo.png" />
+            </div>
+            <div class="flex justify-between items-start mt-2">
+              <h3 class="font-display-lg text-headline-sm text-primary leading-none">CHICKEN STEAMED</h3>
+              <span class="font-label-bold text-primary">&#8377;70.00</span>
+            </div>
+            <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[10px]">Steamed Dumplings</p>
+            <p class="font-body-md text-on-surface text-xs line-clamp-2">Fresh hand-wrapped chicken momos steamed to
+              juicy perfection, served with garlic chili dip.</p>
+            <button
+              class="mt-2 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+              data-id="momo_chicken_steamed" data-name="Chicken Steamed Momo" data-price="70.00"
+              data-image="chickensteamedmomo.png" data-tags="steamed chicken momo" data-category="Momo">Add to
+              Cart</button>
+          </div>
+
+          <!-- Card 2: Shin Ramen -->
+          <div
+            class="w-[260px] bg-surface-container-lowest border-3 border-on-background p-4 hard-shadow flex flex-col gap-2 group hover:scale-[1.02] transition-transform duration-300 snap-center mx-2">
+            <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container">
+              <!-- # here to chnage Shin Ramen Soupy png -->
+              <img alt="Shin Ramen Soupy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                src="shinramensoupy.png" />
+            </div>
+            <div class="flex justify-between items-start mt-2">
+              <h3 class="font-display-lg text-headline-sm text-primary leading-none">SHIN RAMEN (SOUPY)</h3>
+              <span class="font-label-bold text-primary">&#8377;280.00</span>
+            </div>
+            <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[10px]">Korean Comfort</p>
+            <p class="font-body-md text-on-surface text-xs line-clamp-2">Legendary spicy Korean Shin Ramen in a rich
+              soupy broth loaded with spring onions and soft boiled egg.</p>
+            <button
+              class="mt-2 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+              data-id="ramen_shin_soupy" data-name="Shin Ramen (Soupy)" data-price="280.00"
+              data-image="shinramen(soupy).png" data-tags="ramen soupy shin" data-category="Ramen">Add to Cart</button>
+          </div>
+
+          <!-- Card 3: Honey Garlic Chicken -->
+          <div
+            class="w-[260px] bg-surface-container-lowest border-3 border-on-background p-4 hard-shadow flex flex-col gap-2 group hover:scale-[1.02] transition-transform duration-300 snap-center mx-2">
+            <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container">
+              <!-- # here to chnage Honey Garlic Chicken png -->
+              <img alt="Honey Garlic Chicken"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                src="honeygarlicchicken.png" />
+            </div>
+            <div class="flex justify-between items-start mt-2">
+              <h3 class="font-display-lg text-headline-sm text-primary leading-none">HONEY GARLIC CHICKEN</h3>
+              <span class="font-label-bold text-primary">&#8377;250.00</span>
+            </div>
+            <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[10px]">Wok Tossed Crisp</p>
+            <p class="font-body-md text-on-surface text-xs line-clamp-2">Crispy battered chicken chunks tossed in a
+              sweet, sticky honey-garlic glaze and sprinkled with sesame.</p>
+            <button
+              class="mt-2 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+              data-id="rice_honey_garlic_chicken" data-name="Honey Garlic Chicken" data-price="250.00"
+              data-image="honeygarlicchicken.png" data-tags="chicken premium honey garlic" data-category="Meat Mania">Add to
+              Cart</button>
+          </div>
+
+          <!-- Card 4: Blueberry Milkshake -->
+          <div
+            class="w-[300px] bg-surface-container-lowest border-4 border-on-background p-6 hard-shadow flex flex-col gap-3 group hover:scale-[1.02] transition-transform duration-300 snap-center mx-4">
+            <div class="aspect-[4/3] w-full overflow-hidden border-2 border-on-background p-1 bg-secondary-container">
+              <!-- # here to chnage Blueberry Milkshake png -->
+              <img alt="Blueberry Milkshake"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                src="blueberrymilkshake.png" />
+            </div>
+            <div class="flex justify-between items-start mt-2">
+              <h3 class="font-display-lg text-headline-sm text-primary leading-none">BLUEBERRY SHAKE</h3>
+              <span class="font-label-bold text-primary">&#8377;170.00</span>
+            </div>
+            <p class="font-label-sm text-on-surface-variant uppercase tracking-widest text-[10px]">Thick Creamy Blend
+            </p>
+            <p class="font-body-md text-on-surface text-xs line-clamp-2">Premium creamy ice cream blended with crushed
+              wild blueberries and whipped cream toppings.</p>
+            <button
+              class="mt-2 bg-on-background text-on-primary font-label-bold py-3 uppercase border-2 border-on-background hover:bg-primary transition-colors add-to-cart-btn"
+              data-id="shake_blueberry" data-name="Blueberry Milkshake" data-price="170.00"
+              data-image="blueberrymilkshake.png" data-tags="milkshake blueberry shake" data-category="Milkshake">Add to
+              Cart</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Giant Marquee Ribbon Banner -->
+    <div class="bg-on-background py-3 overflow-hidden border-y-3 border-primary">
+      <div
+        class="marquee-text flex whitespace-nowrap gap-8 text-on-primary font-headline-md text-[18px] uppercase italic">
+        <span>Satisfy Your Crave â€¢ The MORE MO'S Way. Get It Fresh & Spicy. Eat Loud. Live Spicy. â€¢</span>
+        <span>Satisfy Your Crave â€¢ The MORE MO'S Way. Get It Fresh & Spicy. Eat Loud. Live Spicy. â€¢</span>
+        <span>Satisfy Your Crave â€¢ The MORE MO'S Way. Get It Fresh & Spicy. Eat Loud. Live Spicy. â€¢</span>
+      </div>
+    </div>
+
+    <!-- Review Section: Brutalist Comic Tilted Cards -->
+    <section class="py-10 bg-background border-b-3 border-on-background">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="font-display-lg text-[28px] text-on-background uppercase mb-8 leading-none">REAL TALK</h2>
+
+        <div class="grid grid-cols-1 gap-5">
+
+          <!-- Card 1 -->
+          <div
+            class="bg-on-background text-on-primary p-6 border-4 border-on-background shadow-[6px_6px_0px_0px_rgba(185,0,39,1)] rotate-[-2deg] hover:rotate-0 transition-transform duration-300">
+            <div class="flex text-primary mb-3 justify-center">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="font-label-bold text-sm uppercase leading-relaxed text-center mb-4">"Steamed chicken momos are
+              incredibly juicy. They burst with flavor! The red garlic hot chutney is fire."</p>
+            <p class="font-display-lg text-sm text-primary uppercase">BAKEN KATO</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-primary text-on-primary p-6 border-4 border-on-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rotate-[1.5deg] hover:rotate-0 transition-transform duration-300">
+            <div class="flex text-secondary-container mb-3 justify-center">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="font-label-bold text-sm uppercase leading-relaxed text-center mb-4">"Shin soupy ramen hits the
+              sweet spot every single rainy night. Rich spicy stock and perfect noodles!"</p>
+            <p class="font-display-lg text-sm text-secondary-container uppercase">TERNYA</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-secondary-container text-on-secondary-container p-6 border-4 border-on-background shadow-[6px_6px_0px_0px_rgba(185,0,39,1)] rotate-[-1deg] hover:rotate-0 transition-transform duration-300">
+            <div class="flex text-primary mb-3 justify-center">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="font-label-bold text-sm uppercase leading-relaxed text-center mb-4">"Honey garlic chicken was
+              sweet, crispy, and cooked to perfection. Blends so well with dry ramen."</p>
+            <p class="font-display-lg text-sm text-primary uppercase">TASE WANGCHUK</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Social/Contact Brutalist Footer Block -->
+    <section class="py-8 bg-on-background text-on-primary overflow-hidden">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 gap-8 border-b-3 border-primary pb-8">
+
+          <div class="space-y-4">
+            <h4 class="font-display-lg text-headline-md text-primary uppercase">CATALOG</h4>
+            <ul class="font-label-bold text-sm space-y-2 uppercase text-surface-variant">
+              <li><a href="momo.html" class="hover:text-primary transition-colors">Momos</a></li>
+              <li><a href="ramen-thukpa.html" class="hover:text-primary transition-colors">Ramen & Thukpa</a></li>
+              <li><a href="noodles-rice.html" class="hover:text-primary transition-colors">Noodles & Rice</a></li>
+              <li><a href="sides.html" class="hover:text-primary transition-colors">Sides & Wraps</a></li>
+              <li><a href="drinks.html" class="hover:text-primary transition-colors">Refreshing Drinks</a></li>
+              <li><a href="shakes.html" class="hover:text-primary transition-colors">Milkshakes</a></li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-display-lg text-headline-md text-primary uppercase">CONTACT DETAILS</h4>
+            <p class="font-body-lg text-[22px] text-secondary-container">9286175004</p>
+            <p class="font-body-md text-surface-variant max-w-xs">
+              Dumpling Parlour Headquarters. Message us on WhatsApp or call to pre-order flavor packs.
+            </p>
+          </div>
+
+          <div class="space-y-4 md:col-span-2">
+            <h4 class="font-display-lg text-headline-md text-primary uppercase">FIND US</h4>
+            <div class="w-full border-4 border-primary hard-shadow overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3552.2959264557917!2d93.60077277574237!3d27.083963576545468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37440768767c19bb%3A0x3d6822d45e312883!2zTW9yZSBtb-KAmXM!5e0!3m2!1sen!2sin!4v1782035222740!5m2!1sen!2sin"
+                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="font-body-md text-surface-variant leading-relaxed">
+              H Sector, Itanagar, Near TV Traders â€¢ We stand against bland, uninspired meals. Taste the revolution
+              today.
+            </p>
+            <div class="inline-block bg-primary text-on-primary p-4 border-2 border-on-background hard-shadow rotate-1">
+              <span class="font-label-bold uppercase text-xs">ESTD 2026 â€¢ LOUD & PROUD</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div
+            class="font-display-lg text-headline-sm text-primary uppercase tracking-tighter hover:tracking-wider transition-all duration-300">
+            Â© 2026 MORE MO'S. EAT LOUD.
+          </div>
+          <div class="flex gap-6 font-label-bold text-xs text-surface-variant">
+            <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
